@@ -12,7 +12,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			naves: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -23,6 +24,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
+				console.log('se cargo la pagina')
+				fetch('https://www.swapi.tech/api/starships')
+				.then( (response)=> response.json() )
+				.then( (data)=> setStore({ naves: data.results }) )
+
+				
 			},
 			changeColor: (index, color) => {
 				//get the store
