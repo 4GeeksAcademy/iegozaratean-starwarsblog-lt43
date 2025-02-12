@@ -12,7 +12,9 @@ export const Home = () =>{
 	
 		<div className="text-center mt-5">
 			<h1>naves dsde api en FLUX en cardnave</h1>
-			{store.naves.map( (nave)=> <Cardnave key={nave.uid} uid={nave.uid}  name={nave.name} /> )}
+			<div className="row flex-row flex-nowrap" style={{ overflowX: "auto" }}>
+				{store.naves.map( (nave, index)=> <Cardnave key={index} uid={nave.url.replace('https://swapi.dev/api/starships/','').replace('/','')}  name={nave.name} manufacturer={nave.manufacturer} model={nave.model} /> )}
+			</div>
 
 		</div>
 	);
